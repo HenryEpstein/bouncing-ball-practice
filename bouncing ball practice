@@ -1,0 +1,42 @@
+float circleX;
+float circleY;
+int crad = 24;
+float dirX = random(25);
+float dirY = random(25);
+
+void setup() {
+  size(500, 500);
+  circleX = random(width);
+  circleY = random(height);
+}
+
+void draw() {
+  bouncyball();
+}
+
+
+//this is the function that makes the ball
+void bouncyball() {
+  
+  //makes fun stuff happen
+  if (!mousePressed) {
+    background(50);
+  }
+  
+  // draw the circle
+  circle(circleX, circleY, crad);
+
+  //for x direction
+  circleX = circleX + dirX;
+  if (circleX <= crad/2 || circleX >= width-(crad/2)) {
+    dirX = -dirX;
+    fill(random(255), random(255), random(255));
+  }
+
+  //for y direction
+  circleY = circleY + dirY;
+  if (circleY <= crad/2 || circleY >= height-(crad/2)) {
+    dirY = -dirY;
+    fill(random(255), random(255), random(255));
+  }
+}
